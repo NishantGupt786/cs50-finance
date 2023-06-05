@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+
+    <table class="table table-striped">
+        <thead>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Shares</th>
+            <th>Price</th>
+            <th>Total</th>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td id="gt"><b>{{grandtotal}}</b></td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for info in data %}
+            <tr>
+                <td>{{info["symbol"]}}</td>
+                <td>{{info["name"]}}</td>
+                <td>{{info["shares"]}}</td>
+                <td>{{info["price"]}}</td>
+                <td>{{info["total"]}}</td>
+            </tr>
+            {% endfor %}
+                <tr>
+                    <td colspan="4"></td>
+                    <td>{{cash}}</td>
+                </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
